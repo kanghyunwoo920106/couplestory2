@@ -24,7 +24,7 @@ app.get("/", function (req, res, next) {
 });
 
 app.get("/getdata", function (req, res) {
-  db.query("SELECT * FROM DATA", function (err, data) {
+  db.query("SELECT * FROM data", function (err, data) {
     if (!err) {
       res.send({ photodata: data });
     } else {
@@ -37,7 +37,7 @@ app.get("/getdata", function (req, res) {
 app.post("/insert", upload.array("image"), (req, res) => {
   for (let i = 0; i < req.files.length; i++) {
     db.query(
-      `INSERT INTO DATA(title,description,image,startdate,enddate) VALUES('${req.body.title}','${req.body.description}','${req.files[i].filename}','${req.body.startdate}','${req.body.enddate}')`
+      `INSERT INTO data(title,description,image,startdate,enddate) VALUES('${req.body.title}','${req.body.description}','${req.files[i].filename}','${req.body.startdate}','${req.body.enddate}')`
     );
   }
 
