@@ -1,11 +1,12 @@
 var express = require("express");
 var router = express.Router();
+const path = require("path");
 const app = express();
 
 const db = require("../database/db_connect");
 const multer = require("multer");
 
-app.use(express.static("build"));
+app.use(express.static(path.join("build/")));
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -21,7 +22,7 @@ const upload = multer({ storage: storage });
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.sendFile(__dirname + "/build/index.html");
+  res.sendFile(path.join(__dirname, "/build/index.html"));
 });
 
 router.get("/getdata", function (req, res) {

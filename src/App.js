@@ -27,7 +27,7 @@ function App() {
   });
 
   const getPosts = async () => {
-    const posts = await axios.get("/getdata");
+    const posts = await axios.get("http://localhost:8080/getdata");
     setDatas(posts.data.photodata);
   };
 
@@ -57,7 +57,7 @@ function App() {
   const reset = (e) => {
     e.preventDefault();
     axios
-      .delete("/reset")
+      .delete("http://localhost:8080/reset")
       .then((result) => {
         console.log(result);
       })
@@ -81,7 +81,7 @@ function App() {
 
   const deleteImgHandle = (idx) => {
     axios
-      .post("/delete", { idx: idx })
+      .post("http://localhost:8080/delete", { idx: idx })
       .then((result) => {
         setOpen(true);
         setPostCheck(2);
@@ -144,7 +144,7 @@ function App() {
       }
 
       await axios
-        .post("/insert", formData)
+        .post("http://localhost:8080/insert", formData)
         .then((result) => {
           setOpen(true);
           setPostCheck(0);
