@@ -17,7 +17,7 @@ function MainSlide(props) {
       interval="100000"
       indicators={false}
     >
-      {/* {datas.map((data, i) => {
+      {datas.map((data, i) => {
         return (
           <Carousel.Item key={data.idx}>
             <MdClear
@@ -51,7 +51,7 @@ function MainSlide(props) {
             </Carousel.Caption>
           </Carousel.Item>
         );
-      })} */}
+      })}
     </Carousel>
   );
 }
